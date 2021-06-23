@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: telemongo
+Version: 0.1.0
+Summary: MongoDB backend for Telethon session storage
+Home-page: https://github.com/watzon/telethon-session-mongo
+Author: Chris Watson
+Author-email: cawatson1993@gmail.com
+License: MIT
+Download-URL: https://github.com/watzon/telethon-session-mongo/releases
+Keywords: telegram session sessions mongo mongodb
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: mongoengine (>=0.19.1)
+Requires-Dist: telethon (>=1.11.3)
+
+# Telethon MongoDB Session
+
+This is a [Telethon](https://telethon.dev) session backend which uses MongoDB.
+
+## Installing
+
+```
+pip3 install telemongo
+```
+
+## Upgrading
+
+```
+pip3 install -U telemongo
+```
+
+## Usage
+
+```python
+from telemongo import MongoSession
+from telethon import TelegramClient
+
+api_id = 12345
+api_hash = "0123456789abcdef0123456789abcdef"
+host = "mongo://username:pass@mongo_host/dbname"
+session = MongoSession('dbname', host=host)
+
+client = TelegramClient(session, api_id, api_hash)
+client.start()
+```
+
+
